@@ -1,4 +1,43 @@
-// Chart for production vs consumption
+// Highlight current nav link based on page
+const path = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('nav a.tablink');
+navLinks.forEach(link => {
+  if(link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')){
+    link.classList.add('active');
+  } else {
+    link.classList.remove('active');
+  }
+});
+
+// Parallax effect on .scroll-effect sections based on vertical mouse position
+document.addEventListener('mousemove', (e) => {
+  const sections = document.querySelectorAll('.scroll-effect');
+
+  sections.forEach((section) => {
+    const rect = section.getBoundingClientRect();
+    const mouseY = e.clientY;
+
+    let percent = (mouseY - rect.top) / rect.height;
+    percent = Math.min(Math.max(percent, 0), 1);
+
+    const moveRange = 30;
+
+    const imgTranslate = (percent - 0.5) * moveRange;
+    const textTranslate = -(percent - 0.5) * moveRange;
+
+    const img = section.querySelector('img');
+    const text = section.querySelector('p');
+
+    if (img) {
+      img.style.transform = `translateY(${imgTranslate}px)`;
+    }
+    if (text) {
+      text.style.transform = `translateY(${textTranslate}px)`;
+    }
+  });
+});
+
+// Chart setup only on pages with #prod-cons-chart
 const ctx = document.getElementById('prod-cons-chart')?.getContext('2d');
 if (ctx) {
   new Chart(ctx, {
@@ -26,84 +65,19 @@ if (ctx) {
   });
 }
 
-// Parallax effect on .scroll-effect sections based on vertical mouse position
-document.addEventListener('mousemove', (e) => {
-  const sections = document.querySelectorAll('.scroll-effect');
+// Subscription form handler only on subscriber page
+const subForm = document.getElementById('subForm');
+if (subForm) {
+  subForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const emailInput = e.target.querySelector('input[type="email"]');
+    const messageDiv = document.getElementById('subMessage');
 
-  sections.forEach((section) => {
-    const rect = section.getBoundingClientRect();
-    const mouseY = e.clientY;
-
-    // Calculate percentage cursor position within the section
-    let percent = (mouseY - rect.top) / rect.height;
-    percent = Math.min(Math.max(percent, 0), 1);
-
-    // Movement range in px
-    const moveRange = 30;
-
-    // Vertical translation for image and text in opposite directions
-    const imgTranslate = (percent - 0.5) * moveRange;
-    const textTranslate = -(percent - 0.5) * moveRange;
-
-    const img = section.querySelector('img');
-    const text = section.querySelector('p');
-
-    if (img) {
-      img.style.transform = `translateY(${imgTranslate}px)`;
-    }
-    if (text) {
-      text.style.transform = `translateY(${textTranslate}px)`;
+    if (emailInput.value) {
+      messageDiv.textContent = `Thank you for subscribing with ${emailInput.value}!`;
+      emailInput.value = '';
+    } else {
+      messageDiv.textContent = 'Please enter a valid email.';
     }
   });
-});
-
-// Navigation tab switcher
-const tabs = {
-  home: document.getElementById('home'),
-  stats: document.getElementById('stats'),
-  subscribe: document.getElementById('subscribe'),
-};
-
-function setActiveTab(tabId) {
-  Object.entries(tabs).forEach(([key, el]) => {
-    el.style.display = key === tabId ? 'block' : 'none';
-  });
-
-  document.querySelectorAll('nav a.tablink').forEach((link) => {
-    link.classList.remove('active');
-  });
-
-  document.getElementById(`${tabId}-link`).classList.add('active');
 }
-
-document.getElementById('home-link').addEventListener('click', (e) => {
-  e.preventDefault();
-  setActiveTab('home');
-});
-
-document.getElementById('stats-link').addEventListener('click', (e) => {
-  e.preventDefault();
-  setActiveTab('stats');
-});
-
-document.getElementById('sub-link').addEventListener('click', (e) => {
-  e.preventDefault();
-  setActiveTab('subscribe');
-});
-
-// Default visible tab
-setActiveTab('home');
-
-// Subscription form basic handler
-document.getElementById('subForm')?.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const emailInput = e.target.querySelector('input[type="email"]');
-  const messageDiv = document.getElementById('subMessage');
-
-  if (emailInput.value) {
-    messageDiv.textContent = `Thank you for subscribing with ${emailInput.value}!`;
-    emailInput.value = '';
-  } else {
-    messageDiv.textContent = 'Please enter a valid email.';
-  }
-});
