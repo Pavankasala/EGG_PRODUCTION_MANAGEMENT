@@ -2,25 +2,21 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>India Egg Statistics</title>
+  <title>India Egg Stats</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
   <nav>
-  <div class="nav-container">
     <div class="nav-left">
-      <button id="navToggle" class="hamburger">☰</button>
-      <div class="nav-links" id="navLinks">
-        <a class="tablink" href="index.html">Home</a>
-        <a class="tablink" href="india_egg_stats.html">India Egg Stats</a>
-        <a class="tablink" href="subscriber_page.html">Subscribers</a>
-      </div>
+      <a class="tablink" href="index.html">Home</a>
+      <a class="tablink" href="india_egg_stats.html">India Egg Stats</a>
+      <a class="tablink" href="subscriber_page.html">Subscribers</a>
     </div>
-    <div class="nav-title">  Egg Production Management</div>
+    <div class="nav-title">Egg Production Management</div>
     <button id="themeToggle">🌞 Light / 🌙 Dark</button>
-  </div>
-</nav>
+  </nav>
 
   <div class="page-content">
     <!-- Bar Chart Section -->
@@ -29,8 +25,7 @@
         <div class="scroll-text">
           <h3>India’s Egg Production vs Consumption (2015–2024)</h3>
           <p>
-            This chart shows the steady increase in both egg production and consumption across India.
-            It highlights the growing nutritional demand and the importance of maintaining a balanced supply chain.
+            This chart shows the rise in egg production and consumption across India over time.
           </p>
         </div>
         <div class="scroll-img">
@@ -48,8 +43,7 @@
         <div class="scroll-text">
           <h3>Top Egg Producing States – Share %</h3>
           <p>
-            Andhra Pradesh leads egg production in India, followed by Tamil Nadu and Telangana.
-            This data helps policymakers and industry professionals allocate resources more efficiently.
+            Andhra Pradesh leads production, followed by Tamil Nadu and Telangana.
           </p>
         </div>
       </div>
@@ -75,14 +69,6 @@
             backgroundColor: 'rgba(255, 99, 132, 0.6)'
           }
         ]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'top'
-          }
-        }
       }
     });
 
@@ -102,9 +88,6 @@
             'rgba(201, 203, 207, 0.8)'
           ]
         }]
-      },
-      options: {
-        responsive: true
       }
     });
   </script>
