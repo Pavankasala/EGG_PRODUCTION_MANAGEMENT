@@ -1,37 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Egg Production Management - India Egg Stats</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>India Egg Statistics</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav {
+      background-color: #007bff;
+      padding: 10px 0;
+      text-align: center;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .tablink {
+      color: white;
+      text-decoration: none;
+      padding: 14px 20px;
+      display: inline-block;
+      font-weight: bold;
+    }
+
+    .tablink:hover {
+      background-color: #0056b3;
+    }
+
+    .section {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    canvas {
+      width: 100% !important;
+      max-height: 400px;
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .back-link a {
+      font-weight: bold;
+      text-decoration: none;
+      color: #007bff;
+    }
+  </style>
 </head>
 <body>
+
   <nav>
     <a href="index.html" class="tablink" id="home-link">Home</a>
     <a href="india_egg_stats.html" class="tablink" id="stats-link">India Egg Stats</a>
     <a href="subscriber_page.html" class="tablink" id="sub-link">Subscribers</a>
   </nav>
 
-  <div class="page-content">
-    <section>
-      <h2>India’s Egg Production vs Consumption</h2>
-      <canvas id="prod-cons-chart"></canvas>
-    </section>
-
-    <section class="scroll-effect">
-      <h3>Top Egg‑Producing States – Share %</h3>
-      <p>
-        Andhra Pradesh: 20%<br />
-        Tamil Nadu: 18%<br />
-        Telangana: 12%<br />
-        West Bengal: 10%<br />
-        Maharashtra: 8%
-      </p>
-      <img src="top_states_pie.png" alt="Top States Pie Chart" />
-    </section>
+  <div class="section scroll-fade">
+    <h2>India's Egg Production vs Consumption (2015–2024)</h2>
+    <canvas id="lineChart"></canvas>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <div class="section scroll-fade">
+    <h2>Top Egg Producing States – Share %</h2>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <div class="back-link scroll-fade">
+    <a href="index.html">← Back to Home</a>
+  </div>
+
+  <script>
+    // Bar Chart
+    const ctx1 = document.getElementById('lineChart');
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],
+        datasets: [
+          {
+            label: 'Production (in billions)',
+            data: [78, 82, 86, 91, 95, 101, 107, 110, 114, 118],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)'
+          },
+          {
+            label: 'Consumption (in billions)',
+            data: [74, 79, 83, 87, 91, 96, 101, 104, 108, 112],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)'
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'top'
+          }
+        }
+      }
+    });
+
+    // Pie Chart
+    const ctx2 = document.getElementById('pieChart');
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Andhra Pradesh', 'Tamil Nadu', 'Telangana', 'Others'],
+        datasets: [{
+          label: 'Production Share %',
+          data: [34, 18, 12, 36],
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(153, 102, 255, 0.8)',
+            'rgba(255, 159, 64, 0.8)',
+            'rgba(201, 203, 207, 0.8)'
+          ]
+        }]
+      },
+      options: {
+        responsive: true
+      }
+    });
+  </script>
+
   <script src="main.js"></script>
 </body>
 </html>
