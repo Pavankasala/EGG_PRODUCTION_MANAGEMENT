@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>EPM Subscribers</title>
+<link href="EPM.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/></head>
+<body>
+<nav class="navbar">
+<div class="logo">EPM System</div>
+<div class="nav-links">
+<a href="index.html">Home</a>
+<a href="dashboard.html">Dashboard</a>
+<a class="active" href="subscriber_page.html">Subscribers</a>
+</div>
+</nav>
+<div class="subscriber-container">
+<h1>Egg Supply Subscribers</h1>
+<div class="subscription-form">
+<h2>New Subscription</h2>
+<form id="subscriberForm">
+<div class="form-group">
+<label for="name">Name:</label>
+<input id="name" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="email">Email:</label>
+<input id="email" required="" type="email"/>
+</div>
+<div class="form-group">
+<label for="quantity">Weekly Quantity:</label>
+<input id="quantity" min="1" required="" type="number"/>
+</div>
+<button type="submit">Subscribe</button>
+</form>
+</div>
+<div class="subscriber-list">
+<h2>Current Subscribers</h2>
+<table id="subscriberTable">
+<thead>
+<tr>
+<th>Name</th>
+<th>Email</th>
+<th>Weekly Quantity</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="subscriberTableBody">
+<!-- Subscriber rows will be added here dynamically -->
+</tbody>
+</table>
+</div>
+</div>
+<script src="EPM.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script><script>AOS.init();</script></body>
+</html>
