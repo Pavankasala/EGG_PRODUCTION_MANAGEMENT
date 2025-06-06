@@ -1,70 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Egg Production Management - Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <title>Egg Production Management - Zig-Zag with Parallax</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Example Navigation (optional)-->
   <nav>
-    <a href="index.html" class="tablink" id="home-link">Home</a>
-    <a href="india_egg_stats.html" class="tablink" id="stats-link">India Egg Stats</a>
-    <a href="subscriber_page.html" class="tablink" id="sub-link">Subscribers</a>
+    <a class="tablink" href="index.html">Home</a>
+    <a class="tablink" href="stats.html">India Egg Stats</a>
+    <a class="tablink" href="subscriber_page.html">Subscribers</a>
   </nav>
 
   <div class="page-content">
+    <!-- Section 1 -->
     <section class="scroll-effect">
-      <img src="Breeding.png" alt="Breeding" />
-      <h3>Efficient Breeding Practices</h3>
-      <p>
-        We select hens with high-yield genetics and strong disease resistance.<br />
-        Breeding cycles are tracked to optimize laying phases.<br />
-        Temperature and humidity controls maintain egg viability.<br />
-        Genetic diversity is preserved to prevent inbreeding.<br />
-        Data-driven pairings improve shell strength metrics.<br />
-        Mortality and hatch-rate stats are monitored daily.<br />
-        Nutrition during breeding is optimized for health.<br />
-        We log fertility trends and adjust protocols.<br />
-        Breeding outcomes are visualized in our dashboard.<br />
-        Goal: maximize egg yield and chick survival rates.
-      </p>
+      <div class="scroll-row">
+        <div class="scroll-img">
+          <img src="Breeding.png" alt="Breeding" />
+        </div>
+        <div class="scroll-text">
+          <h3>Efficient Breeding Practices</h3>
+          <p>
+            We select hens with high-yield genetics and strong disease resistance.<br />
+            Breeding cycles are tracked to optimize laying phases.<br />
+            Temperature and humidity controls maintain egg viability.<br />
+            Genetic diversity is preserved to prevent inbreeding.<br />
+            Data-driven pairings improve shell strength metrics.<br />
+            Mortality and hatch-rate stats are monitored daily.<br />
+            Nutrition during breeding is optimized for health.<br />
+            We log fertility trends and adjust protocols.<br />
+            Breeding outcomes are visualized in our dashboard.<br />
+            Goal: maximize egg yield and chick survival rates.
+          </p>
+        </div>
+      </div>
     </section>
-
-    <section class="scroll-effect">
-      <img src="Collection.png" alt="Collection" />
-      <h3>Advanced Egg Collection Systems</h3>
-      <p>
-        Automated conveyors reduce manual handling.<br />
-        Soft rollers gently transport eggs.<br />
-        Timed collection prevents breakage.<br />
-        Hygiene sensors detect debris or cracks.<br />
-        Eggs cleaned and sanitized in-line.<br />
-        Real-time tracking logs collection time.<br />
-        Data flags abnormal drop counts.<br />
-        Collection efficiency is above 98%.<br />
-        Reports show batch-by-batch yield.<br />
-        Aim: safe, hygienic, high-volume collection.
-      </p>
+    <!-- Section 2 (reverse for zig-zag) -->
+    <section class="scroll-effect reverse">
+      <div class="scroll-row">
+        <div class="scroll-img">
+          <img src="Collection.png" alt="Collection" />
+        </div>
+        <div class="scroll-text">
+          <h3>Advanced Egg Collection Systems</h3>
+          <p>
+            Automated conveyors reduce manual handling.<br />
+            Soft rollers gently transport eggs.<br />
+            Timed collection prevents breakage.<br />
+            Hygiene sensors detect debris or cracks.<br />
+            Eggs cleaned and sanitized in-line.<br />
+            Real-time tracking logs collection time.<br />
+            Data flags abnormal drop counts.<br />
+            Collection efficiency is above 98%.<br />
+            Reports show batch-by-batch yield.<br />
+            Aim: safe, hygienic, high-volume collection.
+          </p>
+        </div>
+      </div>
     </section>
-
+    <!-- Section 3 -->
     <section class="scroll-effect">
-      <img src="Feeding.png" alt="Feeding" />
-      <h3>Precision Feeding for Peak Productivity</h3>
-      <p>
-        Feed composition tailored per bird age.<br />
-        Protein and calcium levels monitored.<br />
-        Feeding schedules automated twice daily.<br />
-        Sensors adjust portion based on weight.<br />
-        Waste is minimized with targeted delivery.<br />
-        Feed intake data logged for analysis.<br />
-        Nutrition directly tied to egg quality.<br />
-        Special feeds for laying versus brooding.<br />
-        AI optimizes feed mix weekly.<br />
-        Objective: maximize feed efficiency and output.
-      </p>
+      <div class="scroll-row">
+        <div class="scroll-img">
+          <img src="Feeding.png" alt="Feeding" />
+        </div>
+        <div class="scroll-text">
+          <h3>Precision Feeding for Peak Productivity</h3>
+          <p>
+            Feed composition tailored per bird age.<br />
+            Protein and calcium levels monitored.<br />
+            Feeding schedules automated twice daily.<br />
+            Sensors adjust portion based on weight.<br />
+            Waste is minimized with targeted delivery.<br />
+            Feed intake data logged for analysis.<br />
+            Nutrition directly tied to egg quality.<br />
+            Special feeds for laying versus brooding.<br />
+            AI optimizes feed mix weekly.<br />
+            Objective: maximize feed efficiency and output.
+          </p>
+        </div>
+      </div>
+    </section>
+    <!-- Example Chart Section (optional, requires Chart.js) -->
+    <section>
+      <h2>India’s Egg Production vs Consumption</h2>
+      <canvas id="prod-cons-chart" style="max-width:700px;width:100%"></canvas>
+    </section>
+    <!-- Example subscription form (optional) -->
+    <section>
+      <form id="subForm">
+        <input type="email" placeholder="Your email" required>
+        <button type="submit">Subscribe</button>
+      </form>
+      <div id="subMessage"></div>
     </section>
   </div>
 
+  <!-- Chart.js library for the chart example (optional) -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="main.js"></script>
 </body>
