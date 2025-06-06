@@ -1,17 +1,14 @@
-/* Nav Layout */
+/* NAVIGATION */
 nav {
   background-color: #007bff;
   padding: 10px 20px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 .nav-left {
@@ -38,11 +35,11 @@ nav a.tablink.active {
 }
 
 .nav-title {
-  color: white;
-  font-weight: bold;
-  font-size: 1.2rem;
+  flex: 1;
   text-align: center;
-  flex-grow: 1;
+  font-weight: bold;
+  color: white;
+  font-size: 1.2rem;
 }
 
 #themeToggle {
@@ -54,21 +51,20 @@ nav a.tablink.active {
   cursor: pointer;
 }
 
-/* Hamburger for mobile */
 .hamburger {
-  background: transparent;
-  color: white;
+  display: none;
+  background: none;
   border: none;
   font-size: 1.5rem;
+  color: white;
   cursor: pointer;
-  display: none;
 }
 
-/* Responsive Nav */
+/* RESPONSIVE LAYOUT */
 @media (max-width: 768px) {
   .nav-container {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
   }
 
   .nav-title {
@@ -85,16 +81,17 @@ nav a.tablink.active {
   .nav-links {
     display: none;
     flex-direction: column;
+    background-color: #0056b3;
     width: 100%;
-    gap: 0;
     margin-top: 10px;
   }
+
   .nav-links.show {
     display: flex;
   }
+
   .nav-links a {
-    padding: 10px;
     width: 100%;
-    background-color: #0056b3;
+    padding: 12px;
   }
 }
