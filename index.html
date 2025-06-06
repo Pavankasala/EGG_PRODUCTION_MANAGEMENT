@@ -1,67 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Egg Production Management</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <nav id="nav">
-    <button class="tablink active" onclick="showPage('home', this)">Home</button>
-    <button class="tablink" onclick="showPage('stats', this)">India Egg Stats</button>
-    <button class="tablink" onclick="showPage('subscribe', this)">Subscribers</button>
+  <nav>
+    <a href="index.html" class="tablink active" id="home-link">Home</a>
+    <a href="india_egg_stats.html" class="tablink" id="stats-link">India Egg Stats</a>
+    <a href="subscriber_page.html" class="tablink" id="sub-link">Subscribers</a>
   </nav>
 
   <div class="tab-content" id="home">
-    <!-- Breeding -->
     <section class="scroll-effect">
-      <img src="Breeding.png" alt="Breeding">
+      <img src="Breeding.png" alt="Breeding" />
       <h3>Efficient Breeding Practices</h3>
       <p>
-        1. We select hens with high-yield genetics and strong disease resistance.<br>
-        2. Breeding cycles are tracked to optimize laying phases.<br>
-        3. Temperature and humidity controls maintain egg viability.<br>
-        4. Genetic diversity is preserved to prevent inbreeding.<br>
-        5. Data-driven pairings improve shell strength metrics.<br>
-        6. Mortality and hatch-rate stats are monitored daily.<br>
-        7. Nutrition during breeding is optimized for health.<br>
-        8. We log fertility trends and adjust protocols.<br>
-        9. Breeding outcomes are visualized in our dashboard.<br>
-        10. Goal: maximize egg yield and chick survival rates.
+        We select hens with high-yield genetics and strong disease resistance.<br />
+        Breeding cycles are tracked to optimize laying phases.<br />
+        Temperature and humidity controls maintain egg viability.<br />
+        Genetic diversity is preserved to prevent inbreeding.<br />
+        Data-driven pairings improve shell strength metrics.<br />
+        Mortality and hatch-rate stats are monitored daily.<br />
+        Nutrition during breeding is optimized for health.<br />
+        We log fertility trends and adjust protocols.<br />
+        Breeding outcomes are visualized in our dashboard.<br />
+        Goal: maximize egg yield and chick survival rates.
       </p>
     </section>
-    <!-- Collection -->
+
     <section class="scroll-effect">
-      <img src="Collection.png" alt="Collection">
+      <img src="Collection.png" alt="Collection" />
       <h3>Advanced Egg Collection Systems</h3>
       <p>
-        1. Automated conveyors reduce manual handling.<br>
-        2. Soft rollers gently transport eggs.<br>
-        3. Timed collection prevents breakage.<br>
-        4. Hygiene sensors detect debris or cracks.<br>
-        5. Eggs cleaned and sanitized in-line.<br>
-        6. Real-time tracking logs collection time.<br>
-        7. Data flags abnormal drop counts.<br>
-        8. Collection efficiency is above 98%.<br>
-        9. Reports show batch-by-batch yield.<br>
-        10. Aim: safe, hygienic, high-volume collection.
+        Automated conveyors reduce manual handling.<br />
+        Soft rollers gently transport eggs.<br />
+        Timed collection prevents breakage.<br />
+        Hygiene sensors detect debris or cracks.<br />
+        Eggs cleaned and sanitized in-line.<br />
+        Real-time tracking logs collection time.<br />
+        Data flags abnormal drop counts.<br />
+        Collection efficiency is above 98%.<br />
+        Reports show batch-by-batch yield.<br />
+        Aim: safe, hygienic, high-volume collection.
       </p>
     </section>
-    <!-- Feeding -->
+
     <section class="scroll-effect">
-      <img src="Feeding.png" alt="Feeding">
+      <img src="Feeding.png" alt="Feeding" />
       <h3>Precision Feeding for Peak Productivity</h3>
       <p>
-        1. Feed composition tailored per bird age.<br>
-        2. Protein and calcium levels monitored.<br>
-        3. Feeding schedules automated twice daily.<br>
-        4. Sensors adjust portion based on weight.<br>
-        5. Waste is minimized with targeted delivery.<br>
-        6. Feed intake data logged for analysis.<br>
-        7. Nutrition directly tied to egg quality.<br>
-        8. Special feeds for laying versus brooding.<br>
-        9. AI optimizes feed mix weekly.<br>
-        10. Objective: maximize feed efficiency and output.
+        Feed composition tailored per bird age.<br />
+        Protein and calcium levels monitored.<br />
+        Feeding schedules automated twice daily.<br />
+        Sensors adjust portion based on weight.<br />
+        Waste is minimized with targeted delivery.<br />
+        Feed intake data logged for analysis.<br />
+        Nutrition directly tied to egg quality.<br />
+        Special feeds for laying versus brooding.<br />
+        AI optimizes feed mix weekly.<br />
+        Objective: maximize feed efficiency and output.
       </p>
     </section>
   </div>
@@ -74,40 +73,26 @@
     <section class="scroll-effect">
       <h3>Top Egg‑Producing States – Share %</h3>
       <p>
-        Andhra Pradesh: 20%<br>
-        Tamil Nadu: 18%<br>
-        Telangana: 12%<br>
-        West Bengal: 10%<br>
+        Andhra Pradesh: 20%<br />
+        Tamil Nadu: 18%<br />
+        Telangana: 12%<br />
+        West Bengal: 10%<br />
         Maharashtra: 8%
       </p>
-      <img src="top_states_pie.png" alt="Top States Pie Chart">
+      <img src="top_states_pie.png" alt="Top States Pie Chart" />
     </section>
   </div>
 
   <div class="tab-content" id="subscribe" style="display:none;">
     <h2>Subscribe for Updates</h2>
     <form id="subForm">
-      <input type="email" placeholder="Your email" required>
+      <input type="email" placeholder="Your email" required />
       <button type="submit">Subscribe</button>
     </form>
     <div id="subMessage"></div>
   </div>
 
-  <script src="main.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script>
-    const ctx = document.getElementById('prod-cons-chart').getContext('2d');
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: ['2018','2019','2020','2021','2022','2023'],
-        datasets: [
-          { label: 'Production (B eggs)', data: [80,83,86,89,92,95], borderColor: 'green' },
-          { label: 'Consumption (B eggs)', data: [75,78,81,84,87,90], borderColor: 'blue' }
-        ]
-      },
-      options: { responsive: true }
-    });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>
