@@ -1,58 +1,94 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>EPM Subscribers</title>
-<link href="EPM.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/></head>
+  <meta charset="UTF-8">
+  <title>Buy Egg Trays</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .title {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .product-image {
+      width: 250px;
+      display: block;
+      margin: 10px auto;
+    }
+    form input, form select, form button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    .note {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-top: 15px;
+    }
+  </style>
+</head>
 <body>
-<nav class="navbar">
-<div class="logo">EPM System</div>
-<div class="nav-links">
-<a href="index.html">Home</a>
-<a href="dashboard.html">Dashboard</a>
-<a class="active" href="subscriber_page.html">Subscribers</a>
+
+<div class="container scroll-fade">
+  <h2 class="title">Buy a Tray of Eggs</h2>
+  <img src="https://i.imgur.com/jUZzI2x.jpg" alt="Tray of Eggs" class="product-image">
+  <p style="text-align:center;"><strong>Price: ₹150 / Tray (30 Eggs)</strong></p>
+
+  <form action="/submit-order" method="POST">
+    <label for="email">Subscriber Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+    <label for="quantity">Quantity:</label>
+    <select id="quantity" name="quantity" required>
+      <option value="1">1 Tray</option>
+      <option value="2">2 Trays</option>
+      <option value="3">3 Trays</option>
+      <option value="4">4 Trays</option>
+      <option value="5">5 Trays</option>
+    </select>
+
+    <label for="address">Delivery Address:</label>
+    <input type="text" id="address" name="address" required placeholder="Your address here">
+
+    <label for="payment-method">Payment Method:</label>
+    <select id="payment-method" name="payment-method" required>
+      <option value="cash-on-delivery">Cash on Delivery</option>
+      <option value="credit-card">Credit Card</option>
+      <option value="bank-transfer">Bank Transfer</option>
+    </select>
+
+    <button type="submit">Place Order</button>
+  </form>
+
+  <p class="note">You will receive a confirmation email after placing your order.</p>
 </div>
-</nav>
-<div class="subscriber-container">
-<h1>Egg Supply Subscribers</h1>
-<div class="subscription-form">
-<h2>New Subscription</h2>
-<form id="subscriberForm">
-<div class="form-group">
-<label for="name">Name:</label>
-<input id="name" required="" type="text"/>
-</div>
-<div class="form-group">
-<label for="email">Email:</label>
-<input id="email" required="" type="email"/>
-</div>
-<div class="form-group">
-<label for="quantity">Weekly Quantity:</label>
-<input id="quantity" min="1" required="" type="number"/>
-</div>
-<button type="submit">Subscribe</button>
-</form>
-</div>
-<div class="subscriber-list">
-<h2>Current Subscribers</h2>
-<table id="subscriberTable">
-<thead>
-<tr>
-<th>Name</th>
-<th>Email</th>
-<th>Weekly Quantity</th>
-<th>Status</th>
-</tr>
-</thead>
-<tbody id="subscriberTableBody">
-<!-- Subscriber rows will be added here dynamically -->
-</tbody>
-</table>
-</div>
-</div>
-<script src="EPM.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script><script>AOS.init();</script></body>
+
+<script src="main.js"></script>
+</body>
 </html>
