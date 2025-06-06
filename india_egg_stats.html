@@ -6,91 +6,96 @@
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    .container {
-      width: 90%;
+    .section {
       max-width: 800px;
-      margin: 50px auto;
-      background-color: #fff;
+      margin: 40px auto;
       padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    }
-    h2 {
-      text-align: center;
-      margin-bottom: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     canvas {
       width: 100% !important;
-      height: 400px !important;
+      max-height: 400px;
     }
-
-    /* Scroll Animation */
-    .scroll-fade {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    .back-link {
+      text-align: center;
+      margin-top: 40px;
     }
-    .scroll-fade.show {
-      opacity: 1;
-      transform: translateY(0);
+    .back-link a {
+      font-weight: bold;
+      text-decoration: none;
+      color: #007bff;
     }
   </style>
 </head>
 <body>
 
-  <div class="container scroll-fade">
-    <h2>India Egg Production vs Consumption (2015 - 2024)</h2>
-    <canvas id="eggChart"></canvas>
+  <div class="section scroll-fade">
+    <h2>India's Egg Production vs Consumption (2015–2024)</h2>
+    <canvas id="lineChart"></canvas>
+  </div>
+
+  <div class="section scroll-fade">
+    <h2>Top Egg Producing States – Share %</h2>
+    <canvas id="pieChart"></canvas>
+  </div>
+
+  <div class="back-link scroll-fade">
+    <a href="index.html">← Back to Home</a>
   </div>
 
   <script>
-    const ctx = document.getElementById('eggChart').getContext('2d');
-    const eggChart = new Chart(ctx, {
-      type: 'line',
+    // Bar Chart
+    const ctx1 = document.getElementById('lineChart');
+    new Chart(ctx1, {
+      type: 'bar',
       data: {
         labels: [2015,2016,2017,2018,2019,2020,2021,2022,2023,2024],
         datasets: [
           {
-            label: 'Production (Billion)',
-            data: [78,82,86,91,95,101,107,110,114,118],
-            borderColor: 'green',
-            backgroundColor: 'rgba(0,128,0,0.1)',
-            fill: true,
-            tension: 0.3
+            label: 'Production (in billions)',
+            data: [78, 82, 86, 91, 95, 101, 107, 110, 114, 118],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)'
           },
           {
-            label: 'Consumption (Billion)',
-            data: [74,79,83,87,91,96,101,104,108,112],
-            borderColor: 'orange',
-            backgroundColor: 'rgba(255,165,0,0.1)',
-            fill: true,
-            tension: 0.3
+            label: 'Consumption (in billions)',
+            data: [74, 79, 83, 87, 91, 96, 101, 104, 108, 112],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)'
           }
         ]
       },
       options: {
         responsive: true,
         plugins: {
-          legend: {
-            position: 'top',
-          },
-        },
-        scales: {
-          y: {
-            beginAtZero: true
-          }
+          legend: { position: 'top' },
         }
       }
     });
 
-    // Scroll fade effect
-    const scrollEls = document.querySelectorAll('.scroll-fade');
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('show');
-      });
+    // Pie Chart
+    const ctx2 = document.getElementById('pieChart');
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: ['Andhra Pradesh', 'Tamil Nadu', 'Telangana', 'Others'],
+        datasets: [{
+          label: 'Production Share %',
+          data: [34, 18, 12, 36],
+          backgroundColor: [
+            'rgba(255, 206, 86, 0.8)',
+            'rgba(153, 102, 255, 0.8)',
+            'rgba(255, 159, 64, 0.8)',
+            'rgba(201, 203, 207, 0.8)'
+          ]
+        }]
+      },
+      options: {
+        responsive: true
+      }
     });
-    scrollEls.forEach(el => observer.observe(el));
   </script>
+
+  <script src="main.js"></script>
 </body>
 </html>
