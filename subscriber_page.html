@@ -1,94 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Buy Egg Trays</title>
-  <link rel="stylesheet" href="style.css">
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f3f4f6;
-      margin: 0;
-      padding: 0;
-    }
-    .container {
-      max-width: 700px;
-      margin: 40px auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-    .title {
-      text-align: center;
-      margin-bottom: 20px;
-    }
-    .product-image {
-      width: 250px;
-      display: block;
-      margin: 10px auto;
-    }
-    form input, form select, form button {
-      width: 100%;
-      padding: 12px;
-      margin-top: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background-color: #28a745;
-      color: white;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #218838;
-    }
-    .note {
-      font-size: 14px;
-      color: #666;
-      text-align: center;
-      margin-top: 15px;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <title>Egg Production Management - Subscribers</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <nav>
+    <a href="index.html" class="tablink" id="home-link">Home</a>
+    <a href="india_egg_stats.html" class="tablink" id="stats-link">India Egg Stats</a>
+    <a href="subscriber_page.html" class="tablink" id="sub-link">Subscribers</a>
+  </nav>
 
-<div class="container scroll-fade">
-  <h2 class="title">Buy a Tray of Eggs</h2>
-  <img src="tray_of_eggs.png" alt="Tray of Eggs" class="product-image">
-  <p style="text-align:center;"><strong>Price: ₹150 / Tray (30 Eggs)</strong></p>
+  <div class="page-content">
+    <h2>Subscribe for Updates</h2>
+    <form id="subForm">
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subMessage"></div>
+  </div>
 
-  <form action="/submit-order" method="POST">
-    <label for="email">Subscriber Email:</label>
-    <input type="email" id="email" name="email" required placeholder="Enter your email">
-
-    <label for="quantity">Quantity:</label>
-    <select id="quantity" name="quantity" required>
-      <option value="1">1 Tray</option>
-      <option value="2">2 Trays</option>
-      <option value="3">3 Trays</option>
-      <option value="4">4 Trays</option>
-      <option value="5">5 Trays</option>
-    </select>
-
-    <label for="address">Delivery Address:</label>
-    <input type="text" id="address" name="address" required placeholder="Your address here">
-
-    <label for="payment-method">Payment Method:</label>
-    <select id="payment-method" name="payment-method" required>
-      <option value="cash-on-delivery">Cash on Delivery</option>
-      <option value="credit-card">Credit Card</option>
-      <option value="bank-transfer">Bank Transfer</option>
-    </select>
-
-    <button type="submit">Place Order</button>
-  </form>
-
-  <p class="note">You will receive a confirmation email after placing your order.</p>
-</div>
-
-<script src="main.js"></script>
+  <script src="main.js"></script>
 </body>
 </html>
