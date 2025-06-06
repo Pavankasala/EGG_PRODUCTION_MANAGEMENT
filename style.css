@@ -1,6 +1,51 @@
-.scroll-effect {opacity:0;transform:translateY(30px);transition:opacity .6s ease-out,transform .6s ease-out;}
-.scroll-effect.visible {opacity:1;transform: translateY(0);}
-.tab-content {padding: 20px;}
-nav {background:#eee; padding:10px;}
-.tablink {margin:0 10px;padding:8px 16px;border:none;cursor:pointer;}
-.tablink.active {background:#ccc;}
+/* Navigation */
+nav {
+  margin: 20px;
+}
+
+nav a.tablink {
+  padding: 10px 20px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  margin-right: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav a.tablink.active {
+  color: white;
+  background-color: #007bff;
+}
+
+/* Tab Content */
+.tab-content {
+  margin: 20px;
+}
+
+/* Scroll Effect Sections */
+.scroll-effect {
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
+
+.scroll-effect img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.scroll-effect p {
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+  font-size: 1rem;
+  line-height: 1.5;
+}
