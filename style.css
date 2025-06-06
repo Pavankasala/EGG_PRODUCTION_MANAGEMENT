@@ -1,35 +1,71 @@
+/* Global Themes */
+body.light-theme {
+  background-color: #fdf6e3; /* beige */
+  color: #222;
+}
+
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* Navigation */
 nav {
-  margin: 20px;
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
 }
 
 nav a.tablink {
-  padding: 10px 20px;
+  color: white;
   text-decoration: none;
-  color: black;
-  font-weight: bold;
-  cursor: pointer;
-  margin-right: 10px;
+  font-weight: 600;
+  padding: 10px 20px;
   border-radius: 5px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition: background-color 0.3s;
+}
+
+nav a.tablink:hover {
+  background-color: #0056b3;
 }
 
 nav a.tablink.active {
-  color: white;
-  background-color: #007bff;
+  background-color: #004080;
 }
 
-/* Page Content Layout */
+#themeToggle {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+/* Page Layout */
 .page-content {
   max-width: 1000px;
   margin: auto;
   padding: 20px;
 }
 
-/* Scroll Effect Sections */
+/* Scroll Sections */
 .scroll-effect {
-  position: relative;
-  overflow: hidden;
   margin-bottom: 40px;
 }
 
@@ -38,6 +74,7 @@ nav a.tablink.active {
   flex-direction: row;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .scroll-effect.reverse .scroll-row {
@@ -48,16 +85,13 @@ nav a.tablink.active {
   flex: 1;
 }
 
-.scroll-img img {
+.scroll-img img,
+.scroll-img canvas {
   width: 100%;
   max-height: 400px;
-  object-fit: cover;
-  pointer-events: none;
-  user-select: none;
+  border-radius: 8px;
   transition: transform 0.1s ease-out;
   will-change: transform;
-  display: block;
-  border-radius: 8px;
 }
 
 .scroll-text {
@@ -68,10 +102,13 @@ nav a.tablink.active {
 
 .scroll-text h3 {
   margin-top: 0;
-  font-size: 1.5rem;
 }
 
-.scroll-text p {
-  font-size: 1rem;
-  line-height: 1.6;
+/* Connect Section */
+.connect-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 10px;
 }
