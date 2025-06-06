@@ -19,9 +19,11 @@ nav a.tablink.active {
   background-color: #007bff;
 }
 
-/* Tab Content */
-.tab-content {
-  margin: 20px;
+/* Page Content Layout */
+.page-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
 }
 
 /* Scroll Effect Sections */
@@ -31,7 +33,22 @@ nav a.tablink.active {
   margin-bottom: 40px;
 }
 
-.scroll-effect img {
+.scroll-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+}
+
+.scroll-effect.reverse .scroll-row {
+  flex-direction: row-reverse;
+}
+
+.scroll-img {
+  flex: 1;
+}
+
+.scroll-img img {
   width: 100%;
   max-height: 400px;
   object-fit: cover;
@@ -40,12 +57,21 @@ nav a.tablink.active {
   transition: transform 0.1s ease-out;
   will-change: transform;
   display: block;
-  margin-bottom: 10px;
+  border-radius: 8px;
 }
 
-.scroll-effect p {
+.scroll-text {
+  flex: 1;
   transition: transform 0.1s ease-out;
   will-change: transform;
+}
+
+.scroll-text h3 {
+  margin-top: 0;
+  font-size: 1.5rem;
+}
+
+.scroll-text p {
   font-size: 1rem;
-  line-height: 1.5;
+  line-height: 1.6;
 }
