@@ -1,83 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>India Egg Statistics</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f9f9f9;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav {
-      background-color: #007bff;
-      padding: 10px 0;
-      text-align: center;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    }
-
-    .tablink {
-      color: white;
-      text-decoration: none;
-      padding: 14px 20px;
-      display: inline-block;
-      font-weight: bold;
-    }
-
-    .tablink:hover {
-      background-color: #0056b3;
-    }
-
-    .section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.1);
-    }
-
-    canvas {
-      width: 100% !important;
-      max-height: 400px;
-    }
-
-    .back-link {
-      text-align: center;
-      margin-top: 40px;
-    }
-
-    .back-link a {
-      font-weight: bold;
-      text-decoration: none;
-      color: #007bff;
-    }
-  </style>
 </head>
 <body>
-
   <nav>
-    <a href="index.html" class="tablink" id="home-link">Home</a>
-    <a href="india_egg_stats.html" class="tablink" id="stats-link">India Egg Stats</a>
-    <a href="subscriber_page.html" class="tablink" id="sub-link">Subscribers</a>
+    <div class="nav-links">
+      <a href="index.html" class="tablink">Home</a>
+      <a href="india_egg_stats.html" class="tablink">India Egg Stats</a>
+      <a href="subscriber_page.html" class="tablink">Subscribers</a>
+    </div>
+    <button id="themeToggle">🌞 Light / 🌙 Dark</button>
   </nav>
 
-  <div class="section scroll-fade">
-    <h2>India's Egg Production vs Consumption (2015–2024)</h2>
-    <canvas id="lineChart"></canvas>
-  </div>
+  <header class="site-title">🥚 Egg Production Management</header>
 
-  <div class="section scroll-fade">
-    <h2>Top Egg Producing States – Share %</h2>
-    <canvas id="pieChart"></canvas>
-  </div>
+  <div class="page-content">
+    <!-- Bar Chart Section -->
+    <section class="scroll-effect reverse">
+      <div class="scroll-row">
+        <div class="scroll-text">
+          <h3>India’s Egg Production vs Consumption (2015–2024)</h3>
+          <p>
+            This chart shows the steady increase in both egg production and consumption across India.
+            It highlights the growing nutritional demand and the importance of maintaining a balanced supply chain.
+          </p>
+        </div>
+        <div class="scroll-img">
+          <canvas id="lineChart" style="max-width:600px;width:100%"></canvas>
+        </div>
+      </div>
+    </section>
 
-  <div class="back-link scroll-fade">
-    <a href="index.html">← Back to Home</a>
+    <!-- Pie Chart Section -->
+    <section class="scroll-effect">
+      <div class="scroll-row">
+        <div class="scroll-img">
+          <canvas id="pieChart" style="max-width:600px;width:100%"></canvas>
+        </div>
+        <div class="scroll-text">
+          <h3>Top Egg Producing States – Share %</h3>
+          <p>
+            Andhra Pradesh leads egg production in India, followed by Tamil Nadu and Telangana.
+            This data helps policymakers and industry professionals allocate resources more efficiently.
+          </p>
+        </div>
+      </div>
+    </section>
   </div>
 
   <script>
