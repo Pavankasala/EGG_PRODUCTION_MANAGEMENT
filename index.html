@@ -1,151 +1,113 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Egg Production Management</title>
-<link href="EPM.css" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet"/></head>
+  <meta charset="UTF-8">
+  <title>Egg Production Management</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
-<nav class="navbar">
-<div class="logo">
-<span>EPM System</span>
-<div class="social-links">
-<a href="https://www.linkedin.com/in/pavan-kasala-3499a8272/" target="_blank">LinkedIn</a>
-<a href="https://github.com/Pavankasala" target="_blank">GitHub</a>
-</div>
-</div>
-<div class="nav-links">
-<a class="active" href="index.html">Home</a>
-<a href="india_egg_stats.html">India Egg Stats</a>
-<a href="subscriber_page.html">Subscribers</a>
-</div>
-</nav>
-<div class="hero-banner">
-<h1>Welcome to Egg Production Management</h1>
-<p>Your comprehensive resource for poultry farming and egg production</p>
-<button class="subscribe-btn">Subscribe Now</button>
-</div>
-<main class="content">
-<section class="info-section">
-<h2>Layer Chicken Industry</h2>
-<div class="info-grid">
-<div class="info-card">
-<img alt="Breeding Management" data-aos="fade-up" src="Breeding.png" style="max-width: 100%; height: auto; display: block; margin: auto;"/>
-<h3>Breeding Management</h3>
-<p>Selective breeding programs focusing on egg production, shell quality, and feed efficiency. Our advanced techniques ensure optimal flock performance.</p>
-</div>
-<div class="info-card">
-<img alt="Egg Collection" data-aos="fade-up" src="Collection.png" style="max-width: 100%; height: auto; display: block; margin: auto;"/>
-<h3>Collection Systems</h3>
-<p>Automated collection systems with minimal breakage rates. Implementing best practices for egg handling and storage to maintain quality.</p>
-</div>
-<div class="info-card">
-<img alt="Feeding Program" data-aos="fade-up" src="Feeding.png" style="max-width: 100%; height: auto; display: block; margin: auto;"/>
-<h3>Nutrition Management</h3>
-<p>Scientific feed formulation with precise nutrient levels. Balanced protein and calcium intake for maximum egg production and shell strength.</p>
-</div>
-</div>
-</section>
-<section class="statistics">
-<h2>Industry Statistics</h2>
-<div class="stats-container">
-<div class="stat-item">
-<h3>Annual Production</h3>
-<p>95B+ eggs</p>
-</div>
-<div class="stat-item">
-<h3>Layer Hens</h3>
-<p>2M+ birds</p>
-</div>
-<div class="stat-item">
-<h3>Feed Efficiency</h3>
-<p>98% optimal</p>
-</div>
-<div class="stat-item">
-<h3>Market Growth</h3>
-<p>15% yearly</p>
-</div>
-</div>
-</section>
-<section class="production-stats">
-<h2>Egg Production Trends</h2>
-<div class="stats-table">
-<table>
-<thead>
-<tr>
-<th>Year</th>
-<th>Number of Eggs Produced (Billion)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>2018</td><td>80</td></tr>
-<tr><td>2019</td><td>83</td></tr>
-<tr><td>2020</td><td>86</td></tr>
-<tr><td>2021</td><td>89</td></tr>
-<tr><td>2022</td><td>92</td></tr>
-<tr><td>2023</td><td>95</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-<section class="egg-types">
-<h2>Egg Types and Nutrition</h2>
-<div class="nutrition-table">
-<table>
-<thead>
-<tr>
-<th>Type of Egg</th>
-<th>Calories</th>
-<th>Protein (g)</th>
-<th>Fat (g)</th>
-</tr>
-</thead>
-<tbody>
-<tr><td>Cage-Free Egg</td><td>70</td><td>6</td><td>5</td></tr>
-<tr><td>Free-Range Egg</td><td>75</td><td>6.3</td><td>5.5</td></tr>
-<tr><td>Organic Egg</td><td>70</td><td>6.5</td><td>4.5</td></tr>
-<tr><td>Enriched Colony Egg</td><td>65</td><td>6.1</td><td>4.8</td></tr>
-</tbody>
-</table>
-</div>
-</section>
-</main>
-<div class="subscription-popup" id="subscriptionPopup">
-<div class="popup-content">
-<span class="close-btn">×</span>
-<h2>Subscribe to Us</h2>
-<form id="subscribeForm">
-<div class="form-group">
-<input placeholder="Name" required="" type="text"/>
-</div>
-<div class="form-group">
-<input placeholder="Email" required="" type="email"/>
-</div>
-<button type="submit">Subscribe</button>
-</form>
-</div>
-</div>
-<footer>
-<div class="footer-content">
-<div class="footer-section">
-<h3>Contact Us</h3>
-<p>Email: pavankasala999@gmail.com</p>
-<p>Phone: xxxxxxxxxx</p>
-</div>
-<div class="footer-section">
-<h3>Follow Us</h3>
-<div class="social-links">
-<a href="https://www.linkedin.com/in/pavan-kasala-3499a8272/" target="_blank">LinkedIn</a>
-<a href="https://github.com/Pavankasala" target="_blank">GitHub</a>
-</div>
-</div>
-<div class="footer-section">
-<p>© 2025 Egg Production Management System</p>
-</div>
-</div>
-</footer>
-<script src="EPM.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script><script>AOS.init();</script></body>
+  <nav id="nav">
+    <button class="tablink active" onclick="showPage('home', this)">Home</button>
+    <button class="tablink" onclick="showPage('stats', this)">India Egg Stats</button>
+    <button class="tablink" onclick="showPage('subscribe', this)">Subscribers</button>
+  </nav>
+
+  <div class="tab-content" id="home">
+    <!-- Breeding -->
+    <section class="scroll-effect">
+      <img src="Breeding.png" alt="Breeding">
+      <h3>Efficient Breeding Practices</h3>
+      <p>
+        1. We select hens with high-yield genetics and strong disease resistance.<br>
+        2. Breeding cycles are tracked to optimize laying phases.<br>
+        3. Temperature and humidity controls maintain egg viability.<br>
+        4. Genetic diversity is preserved to prevent inbreeding.<br>
+        5. Data-driven pairings improve shell strength metrics.<br>
+        6. Mortality and hatch-rate stats are monitored daily.<br>
+        7. Nutrition during breeding is optimized for health.<br>
+        8. We log fertility trends and adjust protocols.<br>
+        9. Breeding outcomes are visualized in our dashboard.<br>
+        10. Goal: maximize egg yield and chick survival rates.
+      </p>
+    </section>
+    <!-- Collection -->
+    <section class="scroll-effect">
+      <img src="Collection.png" alt="Collection">
+      <h3>Advanced Egg Collection Systems</h3>
+      <p>
+        1. Automated conveyors reduce manual handling.<br>
+        2. Soft rollers gently transport eggs.<br>
+        3. Timed collection prevents breakage.<br>
+        4. Hygiene sensors detect debris or cracks.<br>
+        5. Eggs cleaned and sanitized in-line.<br>
+        6. Real-time tracking logs collection time.<br>
+        7. Data flags abnormal drop counts.<br>
+        8. Collection efficiency is above 98%.<br>
+        9. Reports show batch-by-batch yield.<br>
+        10. Aim: safe, hygienic, high-volume collection.
+      </p>
+    </section>
+    <!-- Feeding -->
+    <section class="scroll-effect">
+      <img src="Feeding.png" alt="Feeding">
+      <h3>Precision Feeding for Peak Productivity</h3>
+      <p>
+        1. Feed composition tailored per bird age.<br>
+        2. Protein and calcium levels monitored.<br>
+        3. Feeding schedules automated twice daily.<br>
+        4. Sensors adjust portion based on weight.<br>
+        5. Waste is minimized with targeted delivery.<br>
+        6. Feed intake data logged for analysis.<br>
+        7. Nutrition directly tied to egg quality.<br>
+        8. Special feeds for laying versus brooding.<br>
+        9. AI optimizes feed mix weekly.<br>
+        10. Objective: maximize feed efficiency and output.
+      </p>
+    </section>
+  </div>
+
+  <div class="tab-content" id="stats" style="display:none;">
+    <section>
+      <h2>India’s Egg Production vs Consumption</h2>
+      <canvas id="prod-cons-chart"></canvas>
+    </section>
+    <section class="scroll-effect">
+      <h3>Top Egg‑Producing States – Share %</h3>
+      <p>
+        Andhra Pradesh: 20%<br>
+        Tamil Nadu: 18%<br>
+        Telangana: 12%<br>
+        West Bengal: 10%<br>
+        Maharashtra: 8%
+      </p>
+      <img src="top_states_pie.png" alt="Top States Pie Chart">
+    </section>
+  </div>
+
+  <div class="tab-content" id="subscribe" style="display:none;">
+    <h2>Subscribe for Updates</h2>
+    <form id="subForm">
+      <input type="email" placeholder="Your email" required>
+      <button type="submit">Subscribe</button>
+    </form>
+    <div id="subMessage"></div>
+  </div>
+
+  <script src="main.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const ctx = document.getElementById('prod-cons-chart').getContext('2d');
+    new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: ['2018','2019','2020','2021','2022','2023'],
+        datasets: [
+          { label: 'Production (B eggs)', data: [80,83,86,89,92,95], borderColor: 'green' },
+          { label: 'Consumption (B eggs)', data: [75,78,81,84,87,90], borderColor: 'blue' }
+        ]
+      },
+      options: { responsive: true }
+    });
+  </script>
+</body>
 </html>
