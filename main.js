@@ -1,4 +1,4 @@
-// Highlight current nav link
+// Nav Active Highlight
 const path = window.location.pathname.split('/').pop();
 document.querySelectorAll('nav a.tablink').forEach(link => {
   if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
@@ -8,7 +8,7 @@ document.querySelectorAll('nav a.tablink').forEach(link => {
   }
 });
 
-// Zig-zag parallax effect
+// Zig-Zag Parallax
 document.addEventListener('mousemove', (e) => {
   const sections = document.querySelectorAll('.scroll-effect');
   sections.forEach(section => {
@@ -16,7 +16,7 @@ document.addEventListener('mousemove', (e) => {
     const percent = Math.min(Math.max((e.clientY - rect.top) / rect.height, 0), 1);
     const reverse = section.classList.contains('reverse') ? -1 : 1;
 
-    const img = section.querySelector('.scroll-img img');
+    const img = section.querySelector('.scroll-img img, .scroll-img canvas');
     const text = section.querySelector('.scroll-text');
 
     const imgMove = (percent - 0.5) * 30 * reverse;
@@ -27,47 +27,40 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 
-// Chart.js
+// Chart
 const ctx = document.getElementById('prod-cons-chart')?.getContext('2d');
 if (ctx) {
   new Chart(ctx, {
-    type: 'line',
+    type: 'bar',
     data: {
-      labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+      labels: ['2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023', '2024'],
       datasets: [
         {
-          label: 'Production (B eggs)',
-          data: [80, 83, 86, 89, 92, 95],
-          borderColor: 'green',
-          fill: false,
-          tension: 0.1,
+          label: 'Production (in billions)',
+          data: [78, 82, 85, 89, 94, 100, 110, 115, 118, 120],
+          backgroundColor: '#90ee90',
         },
         {
-          label: 'Consumption (B eggs)',
-          data: [75, 78, 81, 84, 87, 90],
-          borderColor: 'blue',
-          fill: false,
-          tension: 0.1,
-        },
-      ],
+          label: 'Consumption (in billions)',
+          data: [75, 78, 81, 86, 91, 95, 103, 108, 112, 115],
+          backgroundColor: '#ffb6c1',
+        }
+      ]
     },
-    options: { responsive: true },
-  });
-}
-
-// Subscription form
-const subForm = document.getElementById('subForm');
-if (subForm) {
-  subForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const emailInput = e.target.querySelector('input[type="email"]');
-    const messageDiv = document.getElementById('subMessage');
-
-    if (emailInput.value) {
-      messageDiv.textContent = `Thank you for subscribing with ${emailInput.value}!`;
-      emailInput.value = '';
-    } else {
-      messageDiv.textContent = 'Please enter a valid email.';
+    options: {
+      responsive: true,
+      plugins: {
+        legend: {
+          position: 'top'
+        }
+      }
     }
   });
 }
+
+// Theme Toggle
+document.getElementById('themeToggle').addEventListener('click', () => {
+  const body = document.body;
+  body.classList.toggle('dark-theme');
+  body.classList.toggle('light-theme');
+});
