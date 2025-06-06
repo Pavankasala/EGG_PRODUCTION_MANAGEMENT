@@ -1,0 +1,93 @@
+body.light-theme {
+  background-color: #fdf6e3;
+  color: #222;
+}
+body.dark-theme {
+  background-color: #1e1e1e;
+  color: #eee;
+}
+
+a {
+  color: inherit;
+}
+
+nav {
+  background-color: #007bff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+}
+.nav-title {
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.tablink {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
+.tablink.active {
+  background-color: #004080;
+}
+#themeToggle {
+  background: transparent;
+  color: white;
+  border: 1px solid white;
+  border-radius: 5px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.page-content {
+  max-width: 1000px;
+  margin: auto;
+  padding: 20px;
+}
+.scroll-effect {
+  margin-bottom: 40px;
+}
+.scroll-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.scroll-effect.reverse .scroll-row {
+  flex-direction: row-reverse;
+}
+.scroll-img {
+  flex: 1;
+}
+.scroll-img img,
+.scroll-img canvas {
+  width: 100%;
+  max-height: 400px;
+  border-radius: 8px;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+.scroll-text {
+  flex: 1;
+  transition: transform 0.1s ease-out;
+  will-change: transform;
+}
+.connect-section {
+  text-align: center;
+  margin-top: 60px;
+  padding: 30px;
+  background-color: rgba(0, 123, 255, 0.05);
+  border-radius: 10px;
+}
