@@ -9,31 +9,25 @@ navLinks.forEach(link => {
   }
 });
 
-// Parallax effect on .scroll-effect sections based on vertical mouse position
+// Parallax effect on .scroll-effect sections for zig-zag layout
 document.addEventListener('mousemove', (e) => {
   const sections = document.querySelectorAll('.scroll-effect');
-
-  sections.forEach((section) => {
+  sections.forEach(section => {
     const rect = section.getBoundingClientRect();
     const mouseY = e.clientY;
-
     let percent = (mouseY - rect.top) / rect.height;
     percent = Math.min(Math.max(percent, 0), 1);
 
-    const moveRange = 30;
+    // Parallax range
+    const imgMove = (percent - 0.5) * 30;
+    const textMove = -(percent - 0.5) * 30;
 
-    const imgTranslate = (percent - 0.5) * moveRange;
-    const textTranslate = -(percent - 0.5) * moveRange;
+    // Use zig-zag layout selectors
+    const img = section.querySelector('.scroll-img img');
+    const text = section.querySelector('.scroll-text');
 
-    const img = section.querySelector('img');
-    const text = section.querySelector('p');
-
-    if (img) {
-      img.style.transform = `translateY(${imgTranslate}px)`;
-    }
-    if (text) {
-      text.style.transform = `translateY(${textTranslate}px)`;
-    }
+    if (img) img.style.transform = `translateY(${imgMove}px)`;
+    if (text) text.style.transform = `translateY(${textMove}px)`;
   });
 });
 
