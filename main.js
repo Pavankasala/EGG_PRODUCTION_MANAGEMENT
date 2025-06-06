@@ -1,14 +1,36 @@
-// Nav Active Highlight
+// main.js
+// - Highlights active nav tab
+// - Applies mouse parallax to zig-zag sections
+// - Renders chart (if present)
+// - Enables theme toggle with localStorage persistence
+
+// 1. Highlight current nav link
 const path = window.location.pathname.split('/').pop();
 document.querySelectorAll('nav a.tablink').forEach(link => {
-  if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
+  const href = link.getAttribute('href');
+  if (href === path || (path === '' && href === 'index.html')) {
     link.classList.add('active');
   } else {
     link.classList.remove('active');
   }
 });
 
-// Zig-Zag Parallax
+// 2. Apply saved theme on load
+const savedTheme = localStorage.getItem('theme') || 'light';
+document.body.classList.add(`${savedTheme}-theme`);
+
+// 3. Theme toggle with persistence
+const themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const isDark = document.body.classList.contains('dark-theme');
+    document.body.classList.toggle('dark-theme', !isDark);
+    document.body.classList.toggle('light-theme', isDark);
+    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+  });
+}
+
+// 4. Zig-Zag Mouse Parallax Effect
 document.addEventListener('mousemove', (e) => {
   const sections = document.querySelectorAll('.scroll-effect');
   sections.forEach(section => {
@@ -27,7 +49,7 @@ document.addEventListener('mousemove', (e) => {
   });
 });
 
-// Chart
+// 5. Optional Chart (only on index.html)
 const ctx = document.getElementById('prod-cons-chart')?.getContext('2d');
 if (ctx) {
   new Chart(ctx, {
@@ -50,17 +72,8 @@ if (ctx) {
     options: {
       responsive: true,
       plugins: {
-        legend: {
-          position: 'top'
-        }
+        legend: { position: 'top' }
       }
     }
   });
 }
-
-// Theme Toggle
-document.getElementById('themeToggle').addEventListener('click', () => {
-  const body = document.body;
-  body.classList.toggle('dark-theme');
-  body.classList.toggle('light-theme');
-});
