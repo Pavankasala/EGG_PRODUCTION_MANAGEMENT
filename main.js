@@ -1,37 +1,33 @@
-// Highlight current nav link based on page
+// Highlight current nav link
 const path = window.location.pathname.split('/').pop();
-const navLinks = document.querySelectorAll('nav a.tablink');
-navLinks.forEach(link => {
-  if(link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')){
+document.querySelectorAll('nav a.tablink').forEach(link => {
+  if (link.getAttribute('href') === path || (path === '' && link.getAttribute('href') === 'index.html')) {
     link.classList.add('active');
   } else {
     link.classList.remove('active');
   }
 });
 
-// Parallax effect on .scroll-effect sections for zig-zag layout
+// Zig-zag parallax effect
 document.addEventListener('mousemove', (e) => {
   const sections = document.querySelectorAll('.scroll-effect');
   sections.forEach(section => {
     const rect = section.getBoundingClientRect();
-    const mouseY = e.clientY;
-    let percent = (mouseY - rect.top) / rect.height;
-    percent = Math.min(Math.max(percent, 0), 1);
+    const percent = Math.min(Math.max((e.clientY - rect.top) / rect.height, 0), 1);
+    const reverse = section.classList.contains('reverse') ? -1 : 1;
 
-    // Parallax range
-    const imgMove = (percent - 0.5) * 30;
-    const textMove = -(percent - 0.5) * 30;
-
-    // Use zig-zag layout selectors
     const img = section.querySelector('.scroll-img img');
     const text = section.querySelector('.scroll-text');
+
+    const imgMove = (percent - 0.5) * 30 * reverse;
+    const textMove = -(percent - 0.5) * 30 * reverse;
 
     if (img) img.style.transform = `translateY(${imgMove}px)`;
     if (text) text.style.transform = `translateY(${textMove}px)`;
   });
 });
 
-// Chart setup only on pages with #prod-cons-chart
+// Chart.js
 const ctx = document.getElementById('prod-cons-chart')?.getContext('2d');
 if (ctx) {
   new Chart(ctx, {
@@ -59,7 +55,7 @@ if (ctx) {
   });
 }
 
-// Subscription form handler only on subscriber page
+// Subscription form
 const subForm = document.getElementById('subForm');
 if (subForm) {
   subForm.addEventListener('submit', (e) => {
