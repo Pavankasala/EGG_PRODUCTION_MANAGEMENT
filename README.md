@@ -8,8 +8,8 @@ This project was evolved from an original static HTML/CSS concept into a complet
 
 ### 🔴 Live Demo
 
-* **Frontend (React on GitHub Pages):** [https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/)
-* **Backend API (Flask on Render):** [https://your-api-name.onrender.com/api/eggs](https://your-api-name.onrender.com/api/eggs)
+* **Frontend (React on GitHub Pages):**(https://pavankasala.github.io/EGG_PRODUCTION_MANAGEMENT/)
+* **Backend API (Flask on Render):** (https://your-api-name.onrender.com/api/eggs)
 
 ---
 
