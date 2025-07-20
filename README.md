@@ -1,96 +1,90 @@
+# Full-Stack Egg Production Dashboard
 
-🍳 **Egg Production Management System**
+A modern, full-stack web application for managing and visualizing poultry farm egg production data. This project features a React frontend that dynamically fetches data from a Python (Flask) backend API.
 
-A lightweight and interactive frontend web application for managing poultry operations. It visually represents egg collection, feeding, and production statistics, designed to simplify daily tracking on poultry farms. Built entirely using HTML, CSS, and JavaScript.
-
----
-
-## 👀 Preview
-
-![Egg Statistics Dashboard](statistics.png)
+This project was evolved from an original static HTML/CSS concept into a complete client-server application to demonstrate modern web development practices.
 
 ---
 
-## 🚀 Live Features
-- 🥚 **Visualize Egg Collection, Feeding & Breeding** through interactive icons and labeled diagrams  
-- 📈 **Explore India's Egg Production Stats** via a dedicated HTML page  
-- 👥 **Navigate to a Subscriber Page** to simulate user engagement or community tracking  
-- 🐓 **View Dynamic Dashboards** styled with farm-themed imagery  
-- 🖼️ **Seamlessly switch between multiple HTML views** for a smoother user experience  
-- 🌐 **Hosted live on GitHub Pages** for instant access without backend setup
+### 🔴 Live Demo
+
+* **Frontend (React on GitHub Pages):** [https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/](https://YOUR_USERNAME.github.io/YOUR_REPO_NAME/)
+* **Backend API (Flask on Render):** [https://your-api-name.onrender.com/api/eggs](https://your-api-name.onrender.com/api/eggs)
 
 ---
 
-## 🧰 Tech Stack
+### 📸 Screenshot
 
-- **Frontend**:  
-  - HTML5  
-  - CSS3  
-  - JavaScript
+*Replace this with a screenshot of your finished, working dashboard!*
 
-- **Assets**:  
-  - PNG/JPG images for visual interaction  
-  - Multi-page navigation without frameworks
+![Dashboard Screenshot](frontend/public/images/dashboard-screenshot.png)
 
 ---
 
-## 🛠️ How to Run Locally
+### ✨ Key Features
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Pavankasala/EGG_PRODUCTION_MANAGEMENT.git
-   ```
-
-2. **Navigate to the directory**
-   ```bash
-   cd EGG_PRODUCTION_MANAGEMENT
-   ```
-
-3. **Open in your browser**
-   - Simply double-click on `index.html`, or  
-   - Run a local server:
-     ```bash
-     python -m http.server
-     ```
+* **Full-Stack Architecture:** Decoupled frontend and backend for scalability and maintainability.
+* **Dynamic Data:** All dashboard statistics and table data are fetched live from the backend API.
+* **Component-Based UI:** Built with React, featuring reusable components for the dashboard stats and data table.
+* **REST API:** A simple and effective REST API built with Python and Flask to serve production data in JSON format.
+* **CI/CD Deployment:** The backend is automatically deployed on Render and the frontend on GitHub Pages with every push to the `main` branch.
 
 ---
 
-## 📁 File Structure
+### 🛠️ Technology Stack
 
+| Frontend          | Backend            | Deployment        |
+| ----------------- | ------------------ | ----------------- |
+| React             | Python 3           | Render            |
+| JavaScript (ES6+) | Flask              | GitHub Pages      |
+| HTML5 / CSS3      | Gunicorn           | Git               |
+| `fetch` API       |                    |                   |
+
+---
+
+### 🏗️ Architecture Overview
+
+This application uses a client-server model:
+
+1.  **Frontend (Client):** A Single-Page Application (SPA) built with React. It is responsible for rendering the user interface and fetching data from the API when the page loads. It is hosted statically on GitHub Pages.
+2.  **Backend (Server):** A lightweight web server built with Flask. Its sole purpose is to expose a `/api/eggs` REST endpoint that returns the latest production data as a JSON object. It is hosted on Render.
+
+---
+
+### 🚀 How to Run Locally
+
+To run this project on your local machine, you will need two terminals running simultaneously.
+
+**1. Clone the repository:**
 ```bash
-📁 EGG_PRODUCTION_MANAGEMENT
- ┣ 📄 index.html               # Main dashboard
- ┣ 📄 india_egg_stats.html     # Indian egg statistics page
- ┣ 📄 subscriber_page.html     # Subscriber interaction page
- ┣ 📄 style.css                # Stylesheet for all pages
- ┣ 📄 main.js                  # JS logic for interactivity
- ┣ 🖼️ Breeding.png             # Visual for breeding section
- ┣ 🖼️ Collection.png           # Visual for collection section
- ┣ 🖼️ Feeding.png              # Visual for feeding section
- ┣ 🖼️ statistics.png           # Used in preview and stats view
- ┣ 🖼️ tray_of_eggs.png         # Egg tray image
- ┗ 🖼️ chicken in the farm.jpg  # Background/visual asset
+git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+cd YOUR_REPO_NAME
 ```
 
----
+**2. Run the Backend Server:**
+```bash
+# Navigate to the backend directory
+cd backend
 
-## 🧠 Highlights
+# Install dependencies
+pip install -r requirements.txt
 
-- 📌 **No backend required** — everything runs in-browser
-- 🎨 Clean and simple UI with image-based sectioning
-- 💡 Perfect starter template for expanding into full-stack poultry or livestock management systems
+# Run the Flask server
+python app.py
+```
+*(The backend will be running on `http://127.0.0.1:5000`)*
 
----
+**3. Run the Frontend Application (in a new terminal):**
+```bash
+# Navigate to the frontend directory
+cd frontend
 
-## 📝 Example Usage
+# Install dependencies
+npm install
 
-> A poultry farm manager wants to track feeding and collection for the day.  
-> They open `index.html`, review visual sections, and navigate to `india_egg_stats.html` to compare their stats with national figures.  
-> They can also view a simplified subscriber page to simulate user input and future expansion.
+# Run the React development server
+npm start
+```
+*(The frontend will open automatically at `http://localhost:3000`)*
 
----
-
-📢 **Live Demo:**  
-🔗 [https://pavankasala.github.io/EGG_PRODUCTION_MANAGEMENT](https://pavankasala.github.io/EGG_PRODUCTION_MANAGEMENT)
-
----
+> **Note:** For local testing, ensure the `fetch` URL in `frontend/src/App.js` points to `http://127.0.0.1:5000/api/eggs`.
