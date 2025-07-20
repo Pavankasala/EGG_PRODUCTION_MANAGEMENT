@@ -55,7 +55,7 @@ function App() {
 
   useEffect(() => {
     // IMPORTANT: Replace this URL with your own live backend URL from Render
-    fetch('https://YOUR_BACKEND_URL.onrender.com/api/eggs')
+    fetch('https://egg-api-pavankasala.onrender.com/api/eggs')
       .then(response => response.json())
       .then(fetchedData => {
         setData(fetchedData);
